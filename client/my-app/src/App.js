@@ -5,8 +5,16 @@ import axios from "axios";
 
 function App() {
   useEffect(() => {
-    axios
-      .get("https://vercel-lm8r9rb2z-jashgarala19.vercel.app/ping")
+    axios('https://vercel-lm8r9rb2z-jashgarala19.vercel.app/ping', {
+      method: 'GET',
+      mode: 'no-cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true,
+      credentials: 'same-origin',
+    })
       .then((response) => {
         console.log(response.data);
       });
