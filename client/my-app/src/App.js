@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello world Testing React 😃</h1>
+      <h1>Stay Happy 😃</h1>
     </div>
   );
 }
