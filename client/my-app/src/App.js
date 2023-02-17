@@ -5,18 +5,12 @@ import axios from "axios";
 
 function App() {
   useEffect(() => {
-    axios('https://vercel-lm8r9rb2z-jashgarala19.vercel.app/ping', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      withCredentials: true,
-      credentials: 'same-origin',
-    })
+    axios
+      .get("https://vercel-fullstack.vercel.app/ping")
       .then((response) => {
         console.log(response.data);
+      }).catch((err) => {
+        console.log(err.message);
       });
   }, []);
 

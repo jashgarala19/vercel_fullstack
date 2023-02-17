@@ -1,19 +1,17 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
-app.use(
-    cors({
-      origin: "*",
-    })
-  );
+app.use(cors({origin:true}));
+
+   
 
 app.get('/', (req, res) => {
     res.send('Express JS on Vercel')
 })
 
 app.get('/ping', (req, res) => {
-    
-    res.send('pongggg 🏓')
+    // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.send('jash 🏓')
 })
 
 
