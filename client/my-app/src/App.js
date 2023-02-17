@@ -2,7 +2,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import "react-lazy-load-image-component/src/effects/blur.css";
+import "react-loading-skeleton/dist/skeleton.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 function App() {
   // useEffect(() => {
   //   axios
@@ -14,25 +16,43 @@ function App() {
   //     });
   // }, []);
 
-
-  const [data,setData]= useState({});
-
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get("https://vercel-fullstack.vercel.app/getapod")
-      .then(async(response) => {
-       setData(response.data);
-      }).catch((err) => {
+      .then((response) => {
+        setLoading(false);
+        setData(response.data);
+      })
+      .catch((err) => {
         console.log(err.message);
       });
   }, []);
-
-  return (
+  const Loaded = () => {
     <div className="App">
       <h1>{data.title}</h1>
-      <img src={data.hdurl} width="400" height="400"/>
+      <img src={data.hdurl} width="400" height="400" />
       <p className="description">{data.explanation}</p>
+    </div>;
+  };
+  return (
+    <div>
+      {loading ? (
+        <div className="App">
+          <h1>Loading...</h1>
+        </div>
+      ) : (
+        <div className="App">
+          <h1>{data.title}</h1>
+          <LazyLoadImage src={data.hdurl} width={400} height={400} />
+          {/* <img src={data.hdurl} width="400" height="400" loading="lazy" /> */}
+
+          <p className="description">{data.explanation}</p>
+        </div>
+      )}
     </div>
   );
 }
