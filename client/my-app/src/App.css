@@ -1,7 +1,24 @@
 .App {
   text-align: center;
+  display:flex;
+  align-items: center;
+  flex-direction: column;
 }
 
+img{
+  box-shadow: 2px 2px 50px rgb(12, 12, 12);
+}
+.description{
+  width:50%;
+  font-weight:600;
+line-height:25px;
+}
+
+body{
+  background-color: black;
+  color:white;
+  font-family: "Helvetica Neue",Helvetica,Arial
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
