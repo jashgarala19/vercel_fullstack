@@ -47,10 +47,13 @@ function App() {
       ) : (
         <div className="App">
           <h1>{data.title}</h1>
-          <LazyLoadImage src={data.hdurl} width={400} height={400} />
+          <div className="desc-img">
+          <LazyLoadImage src={data.hdurl} width={670} height={600} className="myimg" />
           {/* <img src={data.hdurl} width="400" height="400" loading="lazy" /> */}
 
           <p className="description">{data.explanation}</p>
+            </div>
+       
         </div>
       )}
     </div>
